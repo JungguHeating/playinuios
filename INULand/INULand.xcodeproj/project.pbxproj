@@ -13,6 +13,11 @@
 		DA22906420BD483F00159593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906220BD483F00159593 /* Main.storyboard */; };
 		DA22906620BD483F00159593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA22906520BD483F00159593 /* Assets.xcassets */; };
 		DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906720BD483F00159593 /* LaunchScreen.storyboard */; };
+		DAF4CD2220C3DB9C00AEEB67 /* SingingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */; };
+		DAF4CD2520C3E20D00AEEB67 /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAF4CD2420C3E20C00AEEB67 /* NanumSquareOTFRegular.otf */; };
+		DAF4CD2820C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4CD2620C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift */; };
+		DAF4CD2920C3E38F00AEEB67 /* SingingRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4CD2720C3E38F00AEEB67 /* SingingRoomCollectionViewCell.xib */; };
+		DAF4CD2B20C3E40F00AEEB67 /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAF4CD2A20C3E40F00AEEB67 /* NanumSquareOTFBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		DA22906520BD483F00159593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA22906820BD483F00159593 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA22906A20BD483F00159593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingRoomViewController.swift; sourceTree = "<group>"; };
+		DAF4CD2420C3E20C00AEEB67 /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
+		DAF4CD2620C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingRoomCollectionViewCell.swift; sourceTree = "<group>"; };
+		DAF4CD2720C3E38F00AEEB67 /* SingingRoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingingRoomCollectionViewCell.xib; sourceTree = "<group>"; };
+		DAF4CD2A20C3E40F00AEEB67 /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
 		FA42CC74398E317EE2738C2F /* Pods-INULand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INULand.release.xcconfig"; path = "Pods/Target Support Files/Pods-INULand/Pods-INULand.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,14 +88,27 @@
 		DA22905D20BD483F00159593 /* INULand */ = {
 			isa = PBXGroup;
 			children = (
+				DAF4CD2320C3E16D00AEEB67 /* Font */,
 				DA22905E20BD483F00159593 /* AppDelegate.swift */,
 				DA22906020BD483F00159593 /* LoginViewController.swift */,
+				DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */,
 				DA22906220BD483F00159593 /* Main.storyboard */,
 				DA22906520BD483F00159593 /* Assets.xcassets */,
 				DA22906720BD483F00159593 /* LaunchScreen.storyboard */,
 				DA22906A20BD483F00159593 /* Info.plist */,
+				DAF4CD2620C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift */,
+				DAF4CD2720C3E38F00AEEB67 /* SingingRoomCollectionViewCell.xib */,
 			);
 			path = INULand;
+			sourceTree = "<group>";
+		};
+		DAF4CD2320C3E16D00AEEB67 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DAF4CD2A20C3E40F00AEEB67 /* NanumSquareOTFBold.otf */,
+				DAF4CD2420C3E20C00AEEB67 /* NanumSquareOTFRegular.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +175,9 @@
 				DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */,
 				DA22906620BD483F00159593 /* Assets.xcassets in Resources */,
 				DA22906420BD483F00159593 /* Main.storyboard in Resources */,
+				DAF4CD2B20C3E40F00AEEB67 /* NanumSquareOTFBold.otf in Resources */,
+				DAF4CD2920C3E38F00AEEB67 /* SingingRoomCollectionViewCell.xib in Resources */,
+				DAF4CD2520C3E20D00AEEB67 /* NanumSquareOTFRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF4CD2220C3DB9C00AEEB67 /* SingingRoomViewController.swift in Sources */,
+				DAF4CD2820C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift in Sources */,
 				DA22906120BD483F00159593 /* LoginViewController.swift in Sources */,
 				DA22905F20BD483F00159593 /* AppDelegate.swift in Sources */,
 			);
