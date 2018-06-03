@@ -13,6 +13,10 @@
 		DA22906420BD483F00159593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906220BD483F00159593 /* Main.storyboard */; };
 		DA22906620BD483F00159593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA22906520BD483F00159593 /* Assets.xcassets */; };
 		DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906720BD483F00159593 /* LaunchScreen.storyboard */; };
+		DA58CF8E20C437A9005C9993 /* Playstation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF8D20C437A9005C9993 /* Playstation.storyboard */; };
+		DA58CF9020C437EC005C9993 /* Culture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF8F20C437EC005C9993 /* Culture.storyboard */; };
+		DA58CF9220C43814005C9993 /* Rent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF9120C43814005C9993 /* Rent.storyboard */; };
+		DA58CF9620C43838005C9993 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF9520C43838005C9993 /* Profile.storyboard */; };
 		DAF4CD2220C3DB9C00AEEB67 /* SingingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */; };
 		DAF4CD2520C3E20D00AEEB67 /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAF4CD2420C3E20C00AEEB67 /* NanumSquareOTFRegular.otf */; };
 		DAF4CD2820C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4CD2620C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift */; };
@@ -30,6 +34,10 @@
 		DA22906520BD483F00159593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA22906820BD483F00159593 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA22906A20BD483F00159593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA58CF8D20C437A9005C9993 /* Playstation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Playstation.storyboard; sourceTree = "<group>"; };
+		DA58CF8F20C437EC005C9993 /* Culture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Culture.storyboard; sourceTree = "<group>"; };
+		DA58CF9120C43814005C9993 /* Rent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rent.storyboard; sourceTree = "<group>"; };
+		DA58CF9520C43838005C9993 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingRoomViewController.swift; sourceTree = "<group>"; };
 		DAF4CD2420C3E20C00AEEB67 /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
 		DAF4CD2620C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingRoomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 		DA22905D20BD483F00159593 /* INULand */ = {
 			isa = PBXGroup;
 			children = (
+				DA58CF8C20C43225005C9993 /* Model */,
 				DAF4CD2320C3E16D00AEEB67 /* Font */,
 				DA22905E20BD483F00159593 /* AppDelegate.swift */,
 				DA22906020BD483F00159593 /* LoginViewController.swift */,
@@ -96,10 +105,21 @@
 				DA22906520BD483F00159593 /* Assets.xcassets */,
 				DA22906720BD483F00159593 /* LaunchScreen.storyboard */,
 				DA22906A20BD483F00159593 /* Info.plist */,
+				DA58CF8D20C437A9005C9993 /* Playstation.storyboard */,
+				DA58CF8F20C437EC005C9993 /* Culture.storyboard */,
+				DA58CF9120C43814005C9993 /* Rent.storyboard */,
+				DA58CF9520C43838005C9993 /* Profile.storyboard */,
+			);
+			path = INULand;
+			sourceTree = "<group>";
+		};
+		DA58CF8C20C43225005C9993 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				DAF4CD2620C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift */,
 				DAF4CD2720C3E38F00AEEB67 /* SingingRoomCollectionViewCell.xib */,
 			);
-			path = INULand;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DAF4CD2320C3E16D00AEEB67 /* Font */ = {
@@ -172,10 +192,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA58CF8E20C437A9005C9993 /* Playstation.storyboard in Resources */,
+				DA58CF9620C43838005C9993 /* Profile.storyboard in Resources */,
 				DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */,
 				DA22906620BD483F00159593 /* Assets.xcassets in Resources */,
 				DA22906420BD483F00159593 /* Main.storyboard in Resources */,
 				DAF4CD2B20C3E40F00AEEB67 /* NanumSquareOTFBold.otf in Resources */,
+				DA58CF9020C437EC005C9993 /* Culture.storyboard in Resources */,
+				DA58CF9220C43814005C9993 /* Rent.storyboard in Resources */,
 				DAF4CD2920C3E38F00AEEB67 /* SingingRoomCollectionViewCell.xib in Resources */,
 				DAF4CD2520C3E20D00AEEB67 /* NanumSquareOTFRegular.otf in Resources */,
 			);

@@ -10,12 +10,12 @@ import UIKit
 
 class SingingRoomViewController: UIViewController {
     
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var singCollectionView: UICollectionView!
+    @IBOutlet weak var topImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topViewGradientShadow()
+        topImage.image = UIImage(named: "group")
         collectionViewInitialize()
         // Do any additional setup after loading the view.
     }
@@ -40,13 +40,12 @@ class SingingRoomViewController: UIViewController {
 
 //CollectionView
 extension SingingRoomViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,7 +64,19 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 5).cgPath
         
         cell.roomOneButton.layer.cornerRadius = 5
+        cell.roomOneButton.clipsToBounds = true
         cell.roomTwoButton.layer.cornerRadius = 5
+        cell.roomTwoButton.clipsToBounds = true
+        
+        let cellGradient = CAGradientLayer()
+        
+        cellGradient.frame = cell.roomOneButton.bounds
+        cellGradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        cellGradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        
+        cellGradient.colors = [UIColor.init(red: 84/255, green: 125/255, blue: 227/255, alpha: 1.0).cgColor, UIColor.init(red: 102/255, green: 144/255, blue: 228/255, alpha: 1.0).cgColor]
+        cell.roomOneButton.layer.insertSublayer(cellGradient, at: 0)
+        
         return cell
     }
     
@@ -74,25 +85,6 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
 
 //Fuctions
 extension SingingRoomViewController {
-    
-    func topViewGradientShadow() {
-        
-        let gradient = CAGradientLayer()
-        
-        gradient.frame = self.topView.bounds
-        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        
-        gradient.colors = [UIColor.init(red: 80/255, green: 120/255, blue: 226/255, alpha: 1.0).cgColor, UIColor.init(red: 103/255, green: 145/255, blue: 228/255, alpha: 1.0).cgColor]
-        
-        self.topView.layer.insertSublayer(gradient, at: 0)
-        
-        self.topView.layer.shadowColor = UIColor.init(red: 196/255, green: 210/255, blue: 245/255, alpha: 1.0).cgColor
-        self.topView.layer.shadowOpacity = 1
-        self.topView.layer.shadowOffset = CGSize.zero
-        self.topView.layer.shadowRadius = 10
-    }
-    
     func collectionViewInitialize() {
         self.singCollectionView.dataSource = self
         self.singCollectionView.delegate = self
