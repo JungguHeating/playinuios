@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDD-YJ-Hrj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDD-YJ-Hrj">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -229,7 +229,7 @@
         <scene sceneID="Ipb-ib-0kC">
             <objects>
                 <viewControllerPlaceholder storyboardName="Rent" id="4dz-Su-3rY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabRent" id="nh9-89-hJY">
+                    <tabBarItem key="tabBarItem" title="Rent" image="tabRent" id="nh9-89-hJY">
                         <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
@@ -241,7 +241,7 @@
         <scene sceneID="fpw-XW-Q3J">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="iJs-ya-cK9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabMy" id="By7-ke-qt2">
+                    <tabBarItem key="tabBarItem" title="Main" image="tabMy" id="By7-ke-qt2">
                         <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
