@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDD-YJ-Hrj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -54,6 +54,9 @@
                                 <state key="normal" title="로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bEZ-58-PJT"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uew-4H-pUL">
                                 <rect key="frame" x="44" y="337" width="323" height="19"/>
@@ -124,12 +127,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="idTextField" destination="uew-4H-pUL" id="vwe-zP-Bd4"/>
+                        <outlet property="passTextField" destination="usA-dP-zU3" id="mbC-pW-DaK"/>
                         <outlet property="signInButton" destination="EQB-A7-kie" id="LG3-je-bAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="1581"/>
+            <point key="canvasLocation" x="-906" y="783"/>
         </scene>
         <!--Singing Room View Controller-->
         <scene sceneID="4DW-Dm-CdF">
@@ -190,7 +195,7 @@
                         <viewLayoutGuide key="safeArea" id="nZE-5W-oKv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabMic" id="uz6-bh-jVB">
-                        <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="-6"/>
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="singCollectionView" destination="cP8-hE-07C" id="98d-YB-t6s"/>
@@ -206,7 +211,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="Playstation" id="YyY-vM-Zyf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabPS" id="EcG-9j-fRb">
-                        <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="-6"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUZ-Ph-E65" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,7 +223,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="Culture" id="jHc-mS-PPr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabCulture" id="7Um-Ko-dj5">
-                        <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hi-2G-MAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,7 +235,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="Rent" id="4dz-Su-3rY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Rent" image="tabRent" id="nh9-89-hJY">
-                        <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="-6"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kY-gc-TyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,8 +246,8 @@
         <scene sceneID="fpw-XW-Q3J">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="iJs-ya-cK9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" image="tabMy" id="By7-ke-qt2">
-                        <inset key="imageInsets" minX="0.0" minY="-6" maxX="0.0" maxY="0.0"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabMy" id="By7-ke-qt2">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yN6-Cc-1s6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,7 +257,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="C38-We-Rsf">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cDD-YJ-Hrj" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" automaticallyAdjustsScrollViewInsets="NO" id="cDD-YJ-Hrj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8ci-47-ezs">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -275,10 +280,10 @@
     </scenes>
     <resources>
         <image name="loginBubble" width="280" height="137"/>
-        <image name="tabCulture" width="31" height="33"/>
-        <image name="tabMic" width="26" height="37"/>
-        <image name="tabMy" width="19" height="34"/>
-        <image name="tabPS" width="31" height="33"/>
-        <image name="tabRent" width="36" height="36"/>
+        <image name="tabCulture" width="51" height="49"/>
+        <image name="tabMic" width="39" height="55"/>
+        <image name="tabMy" width="28" height="51"/>
+        <image name="tabPS" width="46" height="49"/>
+        <image name="tabRent" width="54" height="54"/>
     </resources>
 </document>
