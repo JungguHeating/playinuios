@@ -33,7 +33,7 @@
                         <color key="textColor" red="0.48739528656005859" green="0.59579533338546753" blue="0.8745383620262146" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQ4-kx-Fmv">
+                    <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="RentCollectionViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="OQ4-kx-Fmv" customClass="RentCollectionViewCell" customModule="INULand" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="384" height="54"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -45,6 +45,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" red="0.39215686274509803" green="0.55686274509803924" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85O-jL-f6r">
+                        <rect key="frame" x="0.0" y="40" width="384" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.39215686274509803" green="0.55686274509803924" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </subviews>

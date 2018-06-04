@@ -13,6 +13,10 @@ class RentViewController: UIViewController {
     @IBOutlet weak var rentCollectionView: UICollectionView!
     @IBOutlet weak var topImage: UIImageView!
     
+    let rentStuff = ["1인용 자전거", "2인용 자전거", "인라인 스케이트"]
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topImage.image = UIImage(named: "group")
@@ -57,10 +61,24 @@ extension RentViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.layer.shadowColor = UIColor.lightGray.cgColor
         cell.layer.shadowRadius = 1.5
         cell.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        cell.layer.shadowOpacity = 0.4
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 5).cgPath
         
+        cell.view.layer.cornerRadius = 5
+        cell.view.layer.borderWidth = 1.0
+        cell.view.layer.borderColor = UIColor.clear.cgColor
+        cell.view.layer.masksToBounds = true
+        
+        /*cell.view.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.view.layer.shadowRadius = 1.5
+        cell.view.layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        cell.view.layer.shadowOpacity = 0.4
+        cell.view.layer.masksToBounds = false
+        cell.view.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 5).cgPath
+        */
        
+        cell.stuffLabel.text = rentStuff[indexPath.row]
         
         return cell
         
