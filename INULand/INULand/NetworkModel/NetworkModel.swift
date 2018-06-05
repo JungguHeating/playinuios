@@ -35,6 +35,22 @@ class NetworkModel{
             }
         }
     }
+    
+    // 예약 취소 업데이트 하기
+    func calcleReservation(param: String) {
+        Alamofire.request("\(profileURL)?\(param)", method: .post, parameters: nil, headers: nil).responseJSON { res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "cancales")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "cancle Error")
+                break;
+            }
+        }
+
+    }
     // 노래방 정보 만들어오기
     func getSingingRoom() {
         let url = URL.init(string: "https://playground-e61bc.firebaseapp.com/kara")

@@ -28,14 +28,20 @@ class ProfileViewController: UIViewController {
     
     
     var profileInfo:userinfo?
-    var profileIdString: String?
+    
+    var noshowToInt : Int?
+    var userIdToString: String?
+    var roomTimeToString: String?
     
     
     override func viewDidLoad() {
+        profileInfo = self.appDelegate.profileInfo
         super.viewDidLoad()
         profileName.text = self.appDelegate.profileInfo?.userName
-        profileIdString = "\(self.appDelegate.profileInfo?.userId!)"
-        profileId.text = profileIdString
+        profileId.text = self.appDelegate.profileInfo?.userId
+        
+        noshowToInt = profileInfo?.noShow
+        noShowCountLabel.text = "\(noshowToInt!)"
         
         collectionViewInitialize()
         isReservedCheck()
@@ -55,7 +61,32 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func reservationCancleClicked(_ sender: Any) {
+        //
+        userIdToString = profileInfo?.userId
+        roomTimeToString = profileInfo?.roomTime
+        let alertController = UIAlertController(title: "해당 내용을 삭제할까요？",message: "삭제하게 되면 복구가 불가능합니다.", preferredStyle: UIAlertControllerStyle.alert)
         
+        //UIAlertActionStye.destructive 지정 글꼴 색상 변경
+        let okAction = UIAlertAction(title: "삭제", style: UIAlertActionStyle.destructive){ (action: UIAlertAction) in
+            let param = "stdId=\(self.userIdToString!)&roomTime=\(self.roomTimeToString!)"
+            print(param)
+            let model = NetworkModel(self)
+            model.calcleReservation(param: param)
+            
+            self.view.setNeedsLayout()
+            
+            
+        }
+        
+        let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController,animated: true,completion: nil)
+        //
+        
+
         
     }
     
@@ -117,4 +148,40 @@ class ProfileViewController: UIViewController {
 }
 
 
-
+extension ProfileViewController : NetworkCallback {
+    
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "Profile" {
+            print(resultdata)
+            var temp : [userinfo] = []
+            if let item = resultdata as? NSDictionary {
+                
+                let noShow = item["Stu_Noshow"] as? Int ?? 0
+                let userName = item["Stu_name"] as? String ?? ""
+                let userId = item["Stu_id"] as? String ?? ""
+                let reserved = item["Kind_num"] as? Int ?? 0
+                let resTime = item["resTime"] as? String ?? ""
+                let roomTime = item["roomTime"] as? String ?? ""
+                
+                let obj = userinfo(Kind_num: reserved, Stu_id: userId, Stu_Noshow: noShow, Stu_name: userName, resTime: resTime, roomTime: roomTime )
+                temp.append(obj)
+                print(item)
+                
+                
+                self.appDelegate.profileInfo = obj
+            }
+        }
+        else if code == "cancales"{
+            print("12345566")
+            let model = NetworkModel(self)
+            model.getProfile()
+        }
+    }
+    func networkFail(code: String) {
+        if(code == "error") {
+            print("실패하였습니다.")
+            
+        }
+    }
+    
+}

@@ -11,16 +11,19 @@ import Foundation
 class userinfo {
     var noShow: Int?
     var userName: String?
-    var userId: Int?
+    var userId: String?
     var reserved: Int?
     var resTime: String?
+    var roomTime: String?
     
-    init(Kind_num: Int, Stu_id: Int, Stu_Noshow: Int, Stu_name: String, resTime: String){
+    
+    init(Kind_num: Int, Stu_id: String, Stu_Noshow: Int, Stu_name: String, resTime: String, roomTime: String){
         self.noShow = Stu_Noshow
         self.userName = Stu_name
         self.userId = Stu_id
         self.reserved = Kind_num
         self.resTime = resTime
+        self.roomTime = roomTime
     }
     
 }

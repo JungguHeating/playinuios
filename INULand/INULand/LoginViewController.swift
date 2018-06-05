@@ -91,11 +91,12 @@ extension LoginViewController : NetworkCallback {
                 
                 let noShow = item["Stu_Noshow"] as? Int ?? 0
                 let userName = item["Stu_name"] as? String ?? ""
-                let userId = item["Stu_id"] as? Int ?? 0
+                let userId = item["Stu_id"] as? String ?? ""
                 let reserved = item["Kind_num"] as? Int ?? 0
                 let resTime = item["resTime"] as? String ?? ""
+                let roomTime = item["roomTime"] as? String ?? ""
                 
-                let obj = userinfo(Kind_num: reserved, Stu_id: userId, Stu_Noshow: noShow, Stu_name: userName, resTime: resTime )
+                let obj = userinfo(Kind_num: reserved, Stu_id: userId, Stu_Noshow: noShow, Stu_name: userName, resTime: resTime, roomTime: roomTime )
                 temp.append(obj)
                 print(item)
                 
