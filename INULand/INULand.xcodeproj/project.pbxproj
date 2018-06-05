@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4A46897C3BAC902BFE12C4E1 /* Pods_INULand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A8C196B6DF658452F45DD2 /* Pods_INULand.framework */; };
+		934984E420C663E5008E062B /* Culture2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934984E220C663E5008E062B /* Culture2CollectionViewCell.swift */; };
+		934984E520C663E5008E062B /* Culture2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934984E320C663E5008E062B /* Culture2CollectionViewCell.xib */; };
+		937195F020C65066000559A9 /* CultureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937195EE20C65066000559A9 /* CultureCollectionViewCell.swift */; };
+		937195F120C65066000559A9 /* CultureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937195EF20C65066000559A9 /* CultureCollectionViewCell.xib */; };
 		938DF2FC20C5719D006ACEA9 /* CultureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938DF2FB20C5719D006ACEA9 /* CultureViewController.swift */; };
 		93B735A020C4CF3000C299FE /* RentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */; };
 		93B735A120C4CF3000C299FE /* RentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */; };
@@ -36,6 +40,10 @@
 /* Begin PBXFileReference section */
 		54A8C196B6DF658452F45DD2 /* Pods_INULand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_INULand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BDBD47A5A03DD8EE6A3514 /* Pods-INULand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INULand.debug.xcconfig"; path = "Pods/Target Support Files/Pods-INULand/Pods-INULand.debug.xcconfig"; sourceTree = "<group>"; };
+		934984E220C663E5008E062B /* Culture2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Culture2CollectionViewCell.swift; sourceTree = "<group>"; };
+		934984E320C663E5008E062B /* Culture2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Culture2CollectionViewCell.xib; sourceTree = "<group>"; };
+		937195EE20C65066000559A9 /* CultureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCollectionViewCell.swift; sourceTree = "<group>"; };
+		937195EF20C65066000559A9 /* CultureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CultureCollectionViewCell.xib; sourceTree = "<group>"; };
 		938DF2FB20C5719D006ACEA9 /* CultureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureViewController.swift; sourceTree = "<group>"; };
 		93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentCollectionViewCell.swift; sourceTree = "<group>"; };
 		93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -151,8 +159,15 @@
 			children = (
 				93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */,
 				93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */,
+<<<<<<< Updated upstream
 				DAF9023720C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift */,
 				DAF9023820C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib */,
+=======
+				937195EE20C65066000559A9 /* CultureCollectionViewCell.swift */,
+				937195EF20C65066000559A9 /* CultureCollectionViewCell.xib */,
+				934984E220C663E5008E062B /* Culture2CollectionViewCell.swift */,
+				934984E320C663E5008E062B /* Culture2CollectionViewCell.xib */,
+>>>>>>> Stashed changes
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,7 +247,9 @@
 				DAF9023A20C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib in Resources */,
 				DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */,
 				DA22906620BD483F00159593 /* Assets.xcassets in Resources */,
+				934984E520C663E5008E062B /* Culture2CollectionViewCell.xib in Resources */,
 				DA22906420BD483F00159593 /* Main.storyboard in Resources */,
+				937195F120C65066000559A9 /* CultureCollectionViewCell.xib in Resources */,
 				DAF4CD2B20C3E40F00AEEB67 /* NanumSquareOTFBold.otf in Resources */,
 				DA58CF9020C437EC005C9993 /* Culture.storyboard in Resources */,
 				93B735A120C4CF3000C299FE /* RentCollectionViewCell.xib in Resources */,
@@ -304,9 +321,11 @@
 				93B735A320C4D1D300C299FE /* RentViewController.swift in Sources */,
 				DAF9023920C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift in Sources */,
 				C8A99AC320C58A7400A8CBB0 /* NetworkCallback.swift in Sources */,
+				934984E420C663E5008E062B /* Culture2CollectionViewCell.swift in Sources */,
 				C8A99ABF20C586EC00A8CBB0 /* Contact.swift in Sources */,
 				DAF9023220C64B7C005DB2B9 /* SingingRoom.swift in Sources */,
 				DA22906120BD483F00159593 /* LoginViewController.swift in Sources */,
+				937195F020C65066000559A9 /* CultureCollectionViewCell.swift in Sources */,
 				938DF2FC20C5719D006ACEA9 /* CultureViewController.swift in Sources */,
 				DA22905F20BD483F00159593 /* AppDelegate.swift in Sources */,
 			);
@@ -447,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MB894TP6V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = INULand/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "INU-school-lab-hw.INULand";
@@ -463,7 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MB894TP6V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = INULand/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "INU-school-lab-hw.INULand";
