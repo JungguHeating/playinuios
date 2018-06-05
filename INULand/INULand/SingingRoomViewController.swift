@@ -16,7 +16,7 @@ class SingingRoomViewController: UIViewController {
     var isSuccess: Bool = false
     var rooms: [SingingRoom] = [] {
         didSet {
-            if self.singCollectionView != nil{
+            if self.singCollectionView != nil {
                 self.singCollectionView.reloadData()
             }
         }
@@ -90,9 +90,6 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
         cell.roomOneButton.addTarget(self, action: #selector(roomOneClicked(sender:)), for: .touchUpInside)
         cell.roomTwoButton.addTarget(self, action: #selector(roomTwoClicked(sender:)), for: .touchUpInside)
         
-        cell.roomOneButton.layer.sublayers?.removeAll()
-        cell.roomTwoButton.layer.sublayers?.removeAll()
-        
         let cellOneGradient = CAGradientLayer()
         
         cellOneGradient.frame = cell.roomOneButton.bounds
@@ -113,6 +110,7 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
             if rooms[indexPath.row].isReserved == 0 {
                 cell.roomOneLabel.text = status[0]
                 cell.roomOneButton.isEnabled = false
+                print(status[0])
             }
             else if rooms[indexPath.row].isReserved == 1 {
                 cell.roomOneButton.layer.insertSublayer(cellOneGradient, at: 1)
@@ -192,7 +190,7 @@ extension SingingRoomViewController {
     }
     
     @objc func roomTwoClicked(sender: UIButton) {
-        let param = "stdId=201301484&roomNum=\(rooms[sender.tag + 8].roomNum!)&roomTime=\(times[sender.tag])00_2&resTime=\(times[sender.tag]):00"
+        let param = "stdId=201301484&roomNum=\(rooms[sender.tag + 8].roomNum!)&roomTime=\(times[sender.tag])00&resTime=\(times[sender.tag]):00"
         let cell = singCollectionView.cellForItem(at: [0,sender.tag]) as! SingingRoomCollectionViewCell
         cell.roomTwoButton.layer.sublayers?.removeAll()
         cell.roomTwoLabel.text = status[0]
