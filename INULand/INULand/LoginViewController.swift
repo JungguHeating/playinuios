@@ -8,6 +8,8 @@
 
 import UIKit
 import Toast_Swift
+import Alamofire
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
@@ -19,9 +21,8 @@ class LoginViewController: UIViewController {
     let adminPass: String? = "1"
     override func viewDidLoad() {
         signInButtonInitialize()
-
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
     override func didReceiveMemoryWarning() {

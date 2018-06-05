@@ -12,5 +12,4 @@ pod 'Alamofire', '~> 4.7'
 pod 'Kingfisher'
 pod 'SwiftyJSON'
 pod 'IQKeyboardManagerSwift'
-pod 'BetterSegmentedControl'
 end

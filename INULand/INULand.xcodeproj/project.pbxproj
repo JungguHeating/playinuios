@@ -11,6 +11,9 @@
 		93B735A020C4CF3000C299FE /* RentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */; };
 		93B735A120C4CF3000C299FE /* RentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */; };
 		93B735A320C4D1D300C299FE /* RentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B735A220C4D1D300C299FE /* RentViewController.swift */; };
+		C8A99ABF20C586EC00A8CBB0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A99ABE20C586EC00A8CBB0 /* Contact.swift */; };
+		C8A99AC120C5889A00A8CBB0 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A99AC020C5889A00A8CBB0 /* NetworkModel.swift */; };
+		C8A99AC320C58A7400A8CBB0 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A99AC220C58A7400A8CBB0 /* NetworkCallback.swift */; };
 		C8F183B520C458C500ED8321 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F183B420C458C500ED8321 /* ProfileViewController.swift */; };
 		DA22905F20BD483F00159593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA22905E20BD483F00159593 /* AppDelegate.swift */; };
 		DA22906120BD483F00159593 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA22906020BD483F00159593 /* LoginViewController.swift */; };
@@ -34,6 +37,9 @@
 		93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentCollectionViewCell.swift; sourceTree = "<group>"; };
 		93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentCollectionViewCell.xib; sourceTree = "<group>"; };
 		93B735A220C4D1D300C299FE /* RentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewController.swift; sourceTree = "<group>"; };
+		C8A99ABE20C586EC00A8CBB0 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		C8A99AC020C5889A00A8CBB0 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		C8A99AC220C58A7400A8CBB0 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		C8F183B420C458C500ED8321 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DA22905B20BD483F00159593 /* INULand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INULand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA22905E20BD483F00159593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +89,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C8A99ABD20C586D300A8CBB0 /* NetworkModel */ = {
+			isa = PBXGroup;
+			children = (
+				C8A99ABE20C586EC00A8CBB0 /* Contact.swift */,
+				C8A99AC020C5889A00A8CBB0 /* NetworkModel.swift */,
+				C8A99AC220C58A7400A8CBB0 /* NetworkCallback.swift */,
+			);
+			path = NetworkModel;
+			sourceTree = "<group>";
+		};
 		DA22905220BD483F00159593 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +120,7 @@
 		DA22905D20BD483F00159593 /* INULand */ = {
 			isa = PBXGroup;
 			children = (
+				C8A99ABD20C586D300A8CBB0 /* NetworkModel */,
 				DA58CF8C20C43225005C9993 /* Model */,
 				DAF4CD2320C3E16D00AEEB67 /* Font */,
 				DA22905E20BD483F00159593 /* AppDelegate.swift */,
@@ -247,7 +264,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-INULand/Pods-INULand-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -256,7 +272,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -277,7 +292,10 @@
 				93B735A020C4CF3000C299FE /* RentCollectionViewCell.swift in Sources */,
 				C8F183B520C458C500ED8321 /* ProfileViewController.swift in Sources */,
 				DAF4CD2220C3DB9C00AEEB67 /* SingingRoomViewController.swift in Sources */,
+				C8A99AC120C5889A00A8CBB0 /* NetworkModel.swift in Sources */,
 				93B735A320C4D1D300C299FE /* RentViewController.swift in Sources */,
+				C8A99AC320C58A7400A8CBB0 /* NetworkCallback.swift in Sources */,
+				C8A99ABF20C586EC00A8CBB0 /* Contact.swift in Sources */,
 				DAF4CD2820C3E38F00AEEB67 /* SingingRoomCollectionViewCell.swift in Sources */,
 				DA22906120BD483F00159593 /* LoginViewController.swift in Sources */,
 				DA22905F20BD483F00159593 /* AppDelegate.swift in Sources */,

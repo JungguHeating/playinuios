@@ -22,12 +22,17 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var noShowCountLabel: UILabel!
     
+    var profileInfo:[userinfo] = []
+    var isReserved:Bool = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewInitialize()
-        
-        
-        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        let model = NetworkModel(self)
+        model.getProfile()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,3 +74,34 @@ class ProfileViewController: UIViewController {
     
 }
 
+
+extension ProfileViewController : NetworkCallback {
+    
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "Profile" {
+            print(resultdata)
+            var temp : [userinfo] = []
+            if let items = resultdata as? [NSDictionary] {
+                for jsonitem in items{
+                    let noShow = jsonitem["Stu_Noshow"] as? Int ?? 0
+                    let userName = jsonitem["Stu_name"] as? String ?? ""
+                    let userId = jsonitem["Stu_id"] as? Int ?? 0
+                    let reserved = jsonitem["Kind_num"] as? Int ?? 0
+                    
+                    let obj = userinfo(Kind_num: reserved, Stu_id: userId, Stu_Noshow: noShow, Stu_name: userName)
+                    temp.append(obj)
+                    print("dd")
+                    
+                }
+                self.profileInfo = temp
+            }
+        }
+    }
+    func networkFail(code: String) {
+        if(code == "error") {
+            print("실패하였습니다.")
+            
+        }
+    }
+    
+}
