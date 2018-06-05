@@ -10,6 +10,7 @@ import UIKit
 
 class SingingRoomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
+    
     @IBOutlet weak var roomOneButton: UIButton!
     @IBOutlet weak var roomTwoButton: UIButton!
     @IBOutlet weak var roomOneLabel: UILabel!

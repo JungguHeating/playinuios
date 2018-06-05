@@ -1,25 +1,24 @@
 //
-//  SingingRoomViewController.swift
+//  PlaystationViewController.swift
 //  INULand
 //
-//  Created by Cho on 2018. 6. 3..
+//  Created by Cho on 2018. 6. 6..
 //  Copyright © 2018년 Cho. All rights reserved.
 //
 
 import UIKit
-import Toast_Swift
 
-class SingingRoomViewController: UIViewController {
+class PlaystationViewController: UIViewController {
     
-    @IBOutlet weak var singCollectionView: UICollectionView!
-    @IBOutlet weak var topImage: UIImageView!
+    @IBOutlet weak var topView: UIImageView!
+    @IBOutlet weak var playstationCollectionView: UICollectionView!
     
     var isSuccess: Bool = false
     
     var rooms: [SingingRoom] = [] {
         didSet {
-            if self.singCollectionView != nil{
-                self.singCollectionView.reloadData()
+            if self.playstationCollectionView != nil{
+                self.playstationCollectionView.reloadData()
             }
         }
     }
@@ -29,9 +28,9 @@ class SingingRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topImage.image = UIImage(named: "group")
+        topView.image = #imageLiteral(resourceName: "group")
         let model = NetworkModel(self)
-        model.getSingingRoom()
+        model.getPlaystation()
         collectionViewInitialize()
         // Do any additional setup after loading the view.
     }
@@ -55,7 +54,8 @@ class SingingRoomViewController: UIViewController {
 }
 
 //CollectionView
-extension SingingRoomViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension PlaystationViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -65,7 +65,7 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = singCollectionView.dequeueReusableCell(withReuseIdentifier: "SingingRoomCollectionCell", for: indexPath) as! SingingRoomCollectionViewCell
+        let cell = playstationCollectionView.dequeueReusableCell(withReuseIdentifier: "PlaystationCollectionCell", for: indexPath) as! PlaystationCollectionViewCell
         cell.backgroundColor = UIColor.white
         cell.layer.cornerRadius = 5
         cell.contentView.layer.borderWidth = 1.0
@@ -85,15 +85,25 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
         cell.roomOneButton.clipsToBounds = true
         cell.roomTwoButton.layer.cornerRadius = 5
         cell.roomTwoButton.clipsToBounds = true
+        cell.roomThreeButton.layer.cornerRadius = 5
+        cell.roomThreeButton.clipsToBounds = true
+        cell.roomFourButton.layer.cornerRadius = 5
+        cell.roomFourButton.clipsToBounds = true
         
         cell.roomOneButton.tag = indexPath.row
         cell.roomTwoButton.tag = indexPath.row
+        cell.roomThreeButton.tag = indexPath.row
+        cell.roomFourButton.tag = indexPath.row
         
         cell.roomOneButton.addTarget(self, action: #selector(roomOneClicked(sender:)), for: .touchUpInside)
         cell.roomTwoButton.addTarget(self, action: #selector(roomTwoClicked(sender:)), for: .touchUpInside)
+        cell.roomThreeButton.addTarget(self, action: #selector(roomThreeClicked(sender:)), for: .touchUpInside)
+        cell.roomFourButton.addTarget(self, action: #selector(roomFourClicked(sender:)), for: .touchUpInside)
         
         cell.roomOneButton.layer.sublayers?.removeAll()
         cell.roomTwoButton.layer.sublayers?.removeAll()
+        cell.roomThreeButton.layer.sublayers?.removeAll()
+        cell.roomFourButton.layer.sublayers?.removeAll()
         
         let cellOneGradient = CAGradientLayer()
         
@@ -110,6 +120,22 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
         cellTwoGradient.endPoint = CGPoint(x: 1.0, y: 1.0)
         
         cellTwoGradient.colors = [UIColor.init(red: 84/255, green: 125/255, blue: 227/255, alpha: 1.0).cgColor, UIColor.init(red: 102/255, green: 144/255, blue: 228/255, alpha: 1.0).cgColor]
+        
+        let cellThreeGradient = CAGradientLayer()
+        
+        cellThreeGradient.frame = cell.roomOneButton.bounds
+        cellThreeGradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        cellThreeGradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        
+        cellThreeGradient.colors = [UIColor.init(red: 84/255, green: 125/255, blue: 227/255, alpha: 1.0).cgColor, UIColor.init(red: 102/255, green: 144/255, blue: 228/255, alpha: 1.0).cgColor]
+        
+        let cellFourGradient = CAGradientLayer()
+        
+        cellFourGradient.frame = cell.roomOneButton.bounds
+        cellFourGradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        cellFourGradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        
+        cellFourGradient.colors = [UIColor.init(red: 84/255, green: 125/255, blue: 227/255, alpha: 1.0).cgColor, UIColor.init(red: 102/255, green: 144/255, blue: 228/255, alpha: 1.0).cgColor]
         
         if isSuccess {
             if rooms[indexPath.row].isReserved == 0 {
@@ -130,18 +156,35 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
                 cell.roomTwoButton.isEnabled = true
                 cell.roomTwoLabel.text = status[1]
             }
+            if rooms[indexPath.row + 16].isReserved == 0 {
+                cell.roomThreeLabel.text = status[0]
+                cell.roomThreeButton.isEnabled = false
+            }
+            else if rooms[indexPath.row + 16].isReserved == 1 {
+                cell.roomThreeButton.layer.insertSublayer(cellThreeGradient, at: 1)
+                cell.roomThreeButton.isEnabled = true
+                cell.roomThreeLabel.text = status[1]
+            }
+            if rooms[indexPath.row + 24].isReserved == 0 {
+                cell.roomFourLabel.text = status[0]
+                cell.roomFourButton.isEnabled = false
+            }
+            else if rooms[indexPath.row + 24].isReserved == 1 {
+                cell.roomFourButton.layer.insertSublayer(cellFourGradient, at: 1)
+                cell.roomFourButton.isEnabled = true
+                cell.roomFourLabel.text = status[1]
+            }
         }
         
         return cell
     }
-    
-    
+
 }
 
 //Network
-extension SingingRoomViewController: NetworkCallback {
+extension PlaystationViewController: NetworkCallback {
     func networkSuc(resultdata: Any, code: String) {
-        if code == "sing" {
+        if code == "playstation" {
             print(resultdata)
             var temp: [SingingRoom] = []
             if let items = resultdata as? [NSDictionary] {
@@ -160,24 +203,24 @@ extension SingingRoomViewController: NetworkCallback {
             print(self.rooms.count)
             self.isSuccess = true
         }
-        if code == "reservationSuccess" {
+        if code == "PSreservationSuccess" {
             self.view.makeToast("예약이 완료되었습니다")
             self.rooms.removeAll()
             self.isSuccess = false
             let model = NetworkModel(self)
-            model.getSingingRoom()
+            model.getPlaystation()
         }
-        if code == "reservationFail" {
+        if code == "PSreservationFail" {
             self.view.makeToast("이미 예약된 자리입니다")
             self.rooms.removeAll()
             self.isSuccess = false
             let model = NetworkModel(self)
-            model.getSingingRoom()
+            model.getPlaystation()
         }
     }
     
     func networkFail(code: String) {
-        if code == "sing" {
+        if code == "playstation" {
             print("실패하였습니다.")
             self.rooms.removeAll()
             self.isSuccess = false
@@ -188,31 +231,53 @@ extension SingingRoomViewController: NetworkCallback {
     }
 }
 
-//Fuctions
-extension SingingRoomViewController {
+//Functions
+extension PlaystationViewController {
+    
     func collectionViewInitialize() {
-        self.singCollectionView.dataSource = self
-        self.singCollectionView.delegate = self
-        self.singCollectionView.register(UINib(nibName:"SingingRoomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SingingRoomCollectionCell")
+        self.playstationCollectionView.dataSource = self
+        self.playstationCollectionView.delegate = self
+        self.playstationCollectionView.register(UINib(nibName:"PlaystationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PlaystationCollectionCell")
     }
     
     @objc func roomOneClicked(sender: UIButton) {
         let param = "stdId=201301484&roomNum=\(rooms[sender.tag].roomNum!)&roomTime=\(times[sender.tag])00&resTime=\(times[sender.tag]):00"
-        let cell = singCollectionView.cellForItem(at: [0,sender.tag]) as! SingingRoomCollectionViewCell
+        let cell = playstationCollectionView.cellForItem(at: [0,sender.tag]) as! PlaystationCollectionViewCell
         cell.roomOneButton.layer.sublayers?.removeAll()
         cell.roomOneLabel.text = status[0]
         cell.roomOneButton.isEnabled = false
         let model = NetworkModel(self)
-        model.giveSingingRoom(param: param)
+        model.givePlaystation(param: param)
     }
     
     @objc func roomTwoClicked(sender: UIButton) {
         let param = "stdId=201301484&roomNum=\(rooms[sender.tag + 8].roomNum!)&roomTime=\(times[sender.tag])00_2&resTime=\(times[sender.tag]):00"
-        let cell = singCollectionView.cellForItem(at: [0,sender.tag]) as! SingingRoomCollectionViewCell
+        let cell = playstationCollectionView.cellForItem(at: [0,sender.tag]) as! PlaystationCollectionViewCell
         cell.roomTwoButton.layer.sublayers?.removeAll()
         cell.roomTwoLabel.text = status[0]
         cell.roomTwoButton.isEnabled = false
         let model = NetworkModel(self)
-        model.giveSingingRoom(param: param)
+        model.givePlaystation(param: param)
     }
+    
+    @objc func roomThreeClicked(sender: UIButton) {
+        let param = "stdId=201301484&roomNum=\(rooms[sender.tag + 16].roomNum!)&roomTime=\(times[sender.tag])00_3&resTime=\(times[sender.tag]):00"
+        let cell = playstationCollectionView.cellForItem(at: [0,sender.tag]) as! PlaystationCollectionViewCell
+        cell.roomThreeButton.layer.sublayers?.removeAll()
+        cell.roomThreeLabel.text = status[0]
+        cell.roomThreeButton.isEnabled = false
+        let model = NetworkModel(self)
+        model.givePlaystation(param: param)
+    }
+    
+    @objc func roomFourClicked(sender: UIButton) {
+        let param = "stdId=201301484&roomNum=\(rooms[sender.tag + 24].roomNum!)&roomTime=\(times[sender.tag])00_4&resTime=\(times[sender.tag]):00"
+        let cell = playstationCollectionView.cellForItem(at: [0,sender.tag]) as! PlaystationCollectionViewCell
+        cell.roomFourButton.layer.sublayers?.removeAll()
+        cell.roomFourLabel.text = status[0]
+        cell.roomFourButton.isEnabled = false
+        let model = NetworkModel(self)
+        model.givePlaystation(param: param)
+    }
+    
 }

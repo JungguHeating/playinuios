@@ -21,6 +21,9 @@
 		DA22906420BD483F00159593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906220BD483F00159593 /* Main.storyboard */; };
 		DA22906620BD483F00159593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA22906520BD483F00159593 /* Assets.xcassets */; };
 		DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906720BD483F00159593 /* LaunchScreen.storyboard */; };
+		DA3643CB20C6EBAE00407ACC /* PlaystationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3643CA20C6EBAE00407ACC /* PlaystationViewController.swift */; };
+		DA4D049620C6F07200D78441 /* PlaystationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4D049420C6F07200D78441 /* PlaystationCollectionViewCell.swift */; };
+		DA4D049720C6F07200D78441 /* PlaystationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4D049520C6F07200D78441 /* PlaystationCollectionViewCell.xib */; };
 		DA58CF8E20C437A9005C9993 /* Playstation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF8D20C437A9005C9993 /* Playstation.storyboard */; };
 		DA58CF9020C437EC005C9993 /* Culture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF8F20C437EC005C9993 /* Culture.storyboard */; };
 		DA58CF9220C43814005C9993 /* Rent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF9120C43814005C9993 /* Rent.storyboard */; };
@@ -51,6 +54,9 @@
 		DA22906520BD483F00159593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA22906820BD483F00159593 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA22906A20BD483F00159593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA3643CA20C6EBAE00407ACC /* PlaystationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaystationViewController.swift; sourceTree = "<group>"; };
+		DA4D049420C6F07200D78441 /* PlaystationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaystationCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA4D049520C6F07200D78441 /* PlaystationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaystationCollectionViewCell.xib; sourceTree = "<group>"; };
 		DA58CF8D20C437A9005C9993 /* Playstation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Playstation.storyboard; sourceTree = "<group>"; };
 		DA58CF8F20C437EC005C9993 /* Culture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Culture.storyboard; sourceTree = "<group>"; };
 		DA58CF9120C43814005C9993 /* Rent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rent.storyboard; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 				DAF4CD2320C3E16D00AEEB67 /* Font */,
 				DA22905E20BD483F00159593 /* AppDelegate.swift */,
 				DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */,
+				DA3643CA20C6EBAE00407ACC /* PlaystationViewController.swift */,
 				DA22906220BD483F00159593 /* Main.storyboard */,
 				DA22906520BD483F00159593 /* Assets.xcassets */,
 				DA22906720BD483F00159593 /* LaunchScreen.storyboard */,
@@ -153,6 +160,8 @@
 				93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */,
 				DAF9023720C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift */,
 				DAF9023820C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib */,
+				DA4D049420C6F07200D78441 /* PlaystationCollectionViewCell.swift */,
+				DA4D049520C6F07200D78441 /* PlaystationCollectionViewCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +239,7 @@
 				DA58CF8E20C437A9005C9993 /* Playstation.storyboard in Resources */,
 				DA58CF9620C43838005C9993 /* Profile.storyboard in Resources */,
 				DAF9023A20C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib in Resources */,
+				DA4D049720C6F07200D78441 /* PlaystationCollectionViewCell.xib in Resources */,
 				DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */,
 				DA22906620BD483F00159593 /* Assets.xcassets in Resources */,
 				DA22906420BD483F00159593 /* Main.storyboard in Resources */,
@@ -304,7 +314,9 @@
 				93B735A320C4D1D300C299FE /* RentViewController.swift in Sources */,
 				DAF9023920C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift in Sources */,
 				C8A99AC320C58A7400A8CBB0 /* NetworkCallback.swift in Sources */,
+				DA3643CB20C6EBAE00407ACC /* PlaystationViewController.swift in Sources */,
 				C8A99ABF20C586EC00A8CBB0 /* Contact.swift in Sources */,
+				DA4D049620C6F07200D78441 /* PlaystationCollectionViewCell.swift in Sources */,
 				DAF9023220C64B7C005DB2B9 /* SingingRoom.swift in Sources */,
 				DA22906120BD483F00159593 /* LoginViewController.swift in Sources */,
 				938DF2FC20C5719D006ACEA9 /* CultureViewController.swift in Sources */,
