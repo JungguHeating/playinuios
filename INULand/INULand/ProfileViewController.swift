@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var reservationCellView: UIView!
     @IBOutlet weak var noShowCellView: UIView!
@@ -22,17 +23,26 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var noShowCountLabel: UILabel!
     
-    var profileInfo:[userinfo] = []
-    var isReserved:Bool = false
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var profileId: UILabel!
+    
+    
+    var profileInfo:userinfo?
+    var profileIdString: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileName.text = self.appDelegate.profileInfo?.userName
+        profileIdString = "\(self.appDelegate.profileInfo?.userId!)"
+        profileId.text = profileIdString
+        
         collectionViewInitialize()
+        isReservedCheck()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-        let model = NetworkModel(self)
-        model.getProfile()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +54,40 @@ class ProfileViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func reservationCancleClicked(_ sender: Any) {
+        
+        
+    }
     
+    func isReservedCheck() {
+        
+        switch self.appDelegate.profileInfo?.reserved {
+        case 0:  // 예약 없음
+            reservationLocationLabel.text = nil
+            reservationTimeLabel.text = nil
+            reservationCancelButton.isHidden = true
+            divisionLine.isHidden = true
+            break
+        case 1: // 노래방 예약
+            reservationLocationLabel.text = "노래방"
+            reservationTimeLabel.text = self.appDelegate.profileInfo?.resTime
+            reservationCancelButton.isHidden = false
+            divisionLine.isHidden = false
+            noReservationLabel.text = nil
+            break
+        case 2: // 플스방 예약
+            reservationLocationLabel.text = "플스방"
+            reservationTimeLabel.text = self.appDelegate.profileInfo?.resTime
+            reservationCancelButton.isHidden = false
+            divisionLine.isHidden = false
+            noReservationLabel.text = nil
+            break
+        default:
+            break
+        }
+    
+        
+    }
     
     func collectionViewInitialize(){
         reservationCellView.layer.borderWidth = 1.0
@@ -71,37 +114,7 @@ class ProfileViewController: UIViewController {
         noShowCellView.layer.masksToBounds = false
         noShowCellView.layer.shadowPath = UIBezierPath(roundedRect: noShowCellView.bounds, cornerRadius: 5).cgPath
     }
-    
 }
 
 
-extension ProfileViewController : NetworkCallback {
-    
-    func networkSuc(resultdata: Any, code: String) {
-        if code == "Profile" {
-            print(resultdata)
-            var temp : [userinfo] = []
-            if let item = resultdata as? [NSDictionary] {
-                for jsonitem in item{
-                    let noShow = jsonitem["Stu_Noshow"] as? Int ?? 0
-                    let userName = jsonitem["Stu_name"] as? String ?? ""
-                    let userId = jsonitem["Stu_id"] as? Int ?? 0
-                    let reserved = jsonitem["Kind_num"] as? Int ?? 0
-                    
-                    let obj = userinfo(Kind_num: reserved, Stu_id: userId, Stu_Noshow: noShow, Stu_name: userName)
-                    temp.append(obj)
-                    print("dd")
-                    
-                }
-                self.profileInfo = temp
-            }
-        }
-    }
-    func networkFail(code: String) {
-        if(code == "error") {
-            print("실패하였습니다.")
-            
-        }
-    }
-    
-}
+

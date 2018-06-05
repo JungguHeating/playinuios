@@ -12,6 +12,8 @@ import Alamofire
 import UIKit
 
 class NetworkModel{
+    
+    private let profileURL = "https://playground-e61bc.firebaseapp.com/stu_status"
     var view : NetworkCallback
     
     init(_ view: NetworkCallback) {
@@ -20,8 +22,8 @@ class NetworkModel{
     
 // 프로필 상태 가져오기
     func getProfile() {
-        let url = URL.init(string: "https://playground-e61bc.firebaseapp.com/stu_status")
-        Alamofire.request(url!, method: .get, parameters: nil, headers: nil) .responseJSON { res in
+        
+        Alamofire.request(profileURL, method: .get, parameters: nil, headers: nil) .responseJSON { res in
             
             switch res.result{
             case .success(let item):

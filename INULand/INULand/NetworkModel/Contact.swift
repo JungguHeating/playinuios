@@ -13,12 +13,14 @@ class userinfo {
     var userName: String?
     var userId: Int?
     var reserved: Int?
+    var resTime: String?
     
-    init(Kind_num: Int, Stu_id: Int, Stu_Noshow: Int, Stu_name: String){
+    init(Kind_num: Int, Stu_id: Int, Stu_Noshow: Int, Stu_name: String, resTime: String){
         self.noShow = Stu_Noshow
         self.userName = Stu_name
         self.userId = Stu_id
         self.reserved = Kind_num
+        self.resTime = resTime
     }
     
 }

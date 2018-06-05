@@ -94,6 +94,9 @@
                                         <state key="normal" title="예약 취소">
                                             <color key="titleColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="reservationCancleClicked:" destination="ibD-YT-g7j" eventType="touchUpInside" id="0Ll-lY-5IV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -211,6 +214,8 @@
                         <outlet property="noReservationLabel" destination="qRm-sS-k3a" id="chT-oT-smx"/>
                         <outlet property="noShowCellView" destination="qd8-Mt-YLb" id="Mzt-Ce-WaU"/>
                         <outlet property="noShowCountLabel" destination="5E6-mh-5vn" id="zT3-VQ-0RE"/>
+                        <outlet property="profileId" destination="70x-BB-ZZq" id="IQD-AD-5H1"/>
+                        <outlet property="profileName" destination="D0g-Lh-foy" id="pEz-he-McN"/>
                         <outlet property="reservationCancelButton" destination="UKM-bq-HFs" id="YGX-qE-caC"/>
                         <outlet property="reservationCellView" destination="cAv-UD-vbL" id="dMf-pT-hDi"/>
                         <outlet property="reservationLocationLabel" destination="9NG-Zg-P0V" id="gzx-C1-gcB"/>
