@@ -81,8 +81,8 @@ extension ProfileViewController : NetworkCallback {
         if code == "Profile" {
             print(resultdata)
             var temp : [userinfo] = []
-            if let items = resultdata as? [NSDictionary] {
-                for jsonitem in items{
+            if let item = resultdata as? [NSDictionary] {
+                for jsonitem in item{
                     let noShow = jsonitem["Stu_Noshow"] as? Int ?? 0
                     let userName = jsonitem["Stu_name"] as? String ?? ""
                     let userId = jsonitem["Stu_id"] as? Int ?? 0

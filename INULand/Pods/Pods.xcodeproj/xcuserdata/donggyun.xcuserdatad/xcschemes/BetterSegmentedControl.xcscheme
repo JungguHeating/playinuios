@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9970A81B9BA1F5C88A8A5BDEFC91D1D0"
-               BlueprintName = "SwiftyJSON"
+               BlueprintIdentifier = "157067E73E65A8A712050AB2F9C4E24B"
+               BlueprintName = "BetterSegmentedControl"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SwiftyJSON.framework">
+               BuildableName = "BetterSegmentedControl.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
