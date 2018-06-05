@@ -43,6 +43,7 @@ class NetworkModel{
                     self.view.networkSuc(resultdata: item, code: "sing")
                     break
                 case .failure(let error):
+                    self.view.networkFail(code: "sing")
                     print(error)
                     break
                 }
@@ -57,10 +58,18 @@ class NetworkModel{
                 switch res.result {
                 case .success(let item):
                     print("success")
-                    self.view.networkSuc(resultdata: item, code: "givesing")
+                    if let tf = item as? Bool {
+                        if tf {
+                            self.view.networkSuc(resultdata: item, code: "reservationSuccess")
+                        }
+                        else {
+                            self.view.networkSuc(resultdata: item, code: "reservationFail")
+                        }
+                    }
                     break
                 case .failure(let error):
                     print("error")
+                    self.view.networkFail(code: "givesing")
                     break
                 }
         }

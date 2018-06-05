@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class SingingRoomViewController: UIViewController {
     
@@ -158,7 +159,15 @@ extension SingingRoomViewController: NetworkCallback {
             print(self.rooms.count)
             self.isSuccess = true
         }
-        else if code == "givesing" {
+        if code == "reservationSuccess" {
+            self.view.makeToast("예약이 완료되었습니다")
+            self.rooms.removeAll()
+            self.isSuccess = false
+            let model = NetworkModel(self)
+            model.getSingingRoom()
+        }
+        if code == "reservationFail" {
+            self.view.makeToast("이미 예약된 자리입니다")
             self.rooms.removeAll()
             self.isSuccess = false
             let model = NetworkModel(self)
@@ -169,7 +178,12 @@ extension SingingRoomViewController: NetworkCallback {
     func networkFail(code: String) {
         if code == "sing" {
             print("실패하였습니다.")
+            self.rooms.removeAll()
+            self.isSuccess = false
+            let model = NetworkModel(self)
+            model.getSingingRoom()
         }
+        
     }
 }
 
