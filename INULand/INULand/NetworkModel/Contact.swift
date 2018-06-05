@@ -25,16 +25,4 @@ class userinfo {
     
 }
 
-//class SingingRoom {
-//    var roomNum: String?
-//    var isReserved: Int?
-//
-//    init(num: String, isReserved: Int) {
-//        self.roomNum = num
-//        self.isReserved = isReserved
-//    }
-//}
-
-//{"Kind_num":1,"Stu_id":201301484,"Stu_Noshow":1,"Stu_name":"임동완"}
-
 //https://playground-e61bc.firebaseapp.com/stu_status
