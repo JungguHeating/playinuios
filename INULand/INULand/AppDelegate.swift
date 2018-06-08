@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -15,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var profileInfo:userinfo?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        //Firebase 적용
+        FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
@@ -47,4 +49,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
 

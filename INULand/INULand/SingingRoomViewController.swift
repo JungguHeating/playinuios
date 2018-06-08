@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class SingingRoomViewController: UIViewController {
     
     @IBOutlet weak var singCollectionView: UICollectionView!
     @IBOutlet weak var topImage: UIImageView!
+    @IBOutlet weak var loadingview: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var isSuccess: Bool = false
+    
     var rooms: [SingingRoom] = [] {
         didSet {
-            if self.singCollectionView != nil {
+            if self.singCollectionView != nil{
                 self.singCollectionView.reloadData()
             }
         }
@@ -31,25 +37,36 @@ class SingingRoomViewController: UIViewController {
         let model = NetworkModel(self)
         model.getSingingRoom()
         collectionViewInitialize()
+        startLoading()
+        let date = Date()
+        print(date)
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.isSuccess = false
+        self.rooms.removeAll()
+        let model = NetworkModel(self)
+        model.getSingingRoom()
+        startLoading()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 //CollectionView
@@ -90,6 +107,9 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
         cell.roomOneButton.addTarget(self, action: #selector(roomOneClicked(sender:)), for: .touchUpInside)
         cell.roomTwoButton.addTarget(self, action: #selector(roomTwoClicked(sender:)), for: .touchUpInside)
         
+        cell.roomOneButton.layer.sublayers?.removeAll()
+        cell.roomTwoButton.layer.sublayers?.removeAll()
+        
         let cellOneGradient = CAGradientLayer()
         
         cellOneGradient.frame = cell.roomOneButton.bounds
@@ -110,7 +130,6 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
             if rooms[indexPath.row].isReserved == 0 {
                 cell.roomOneLabel.text = status[0]
                 cell.roomOneButton.isEnabled = false
-                print(status[0])
             }
             else if rooms[indexPath.row].isReserved == 1 {
                 cell.roomOneButton.layer.insertSublayer(cellOneGradient, at: 1)
@@ -136,7 +155,7 @@ extension SingingRoomViewController: UICollectionViewDataSource, UICollectionVie
 
 //Network
 extension SingingRoomViewController: NetworkCallback {
-    func networkSuc(resultdata: Any, code: String) {
+    func networkSuc(resultdata: Any, code: String, tag: Int) {
         if code == "sing" {
             print(resultdata)
             var temp: [SingingRoom] = []
@@ -155,8 +174,21 @@ extension SingingRoomViewController: NetworkCallback {
             self.rooms = temp
             print(self.rooms.count)
             self.isSuccess = true
+            self.endLoading()
         }
-        else if code == "givesing" {
+        if code == "reservationSuccess" {
+            self.view.makeToast("예약이 완료되었습니다")
+            self.appDelegate.profileInfo?.reserved = 1
+            self.appDelegate.profileInfo?.resTime = self.times[tag]+":00"
+            self.appDelegate.profileInfo?.roomTime = self.times[tag]+"00"
+            self.rooms.removeAll()
+            self.isSuccess = false
+            let model = NetworkModel(self)
+            model.getSingingRoom()
+            sleep(1)
+        }
+        if code == "reservationFail" {
+            self.view.makeToast("이미 예약된 자리입니다")
             self.rooms.removeAll()
             self.isSuccess = false
             let model = NetworkModel(self)
@@ -167,7 +199,12 @@ extension SingingRoomViewController: NetworkCallback {
     func networkFail(code: String) {
         if code == "sing" {
             print("실패하였습니다.")
+            self.rooms.removeAll()
+            self.isSuccess = false
+            let model = NetworkModel(self)
+            model.getSingingRoom()
         }
+        
     }
 }
 
@@ -180,22 +217,79 @@ extension SingingRoomViewController {
     }
     
     @objc func roomOneClicked(sender: UIButton) {
-        let param = "stdId=201301484&roomNum=\(rooms[sender.tag].roomNum!)&roomTime=\(times[sender.tag])00&resTime=\(times[sender.tag]):00"
-        let cell = singCollectionView.cellForItem(at: [0,sender.tag]) as! SingingRoomCollectionViewCell
-        cell.roomOneButton.layer.sublayers?.removeAll()
-        cell.roomOneLabel.text = status[0]
-        cell.roomOneButton.isEnabled = false
-        let model = NetworkModel(self)
-        model.giveSingingRoom(param: param)
+        if appDelegate.profileInfo?.reserved! == 0 {
+            let alertController = UIAlertController(title: "예약하시겠습니까?",message: "노래방 / 예약시간 \(self.times[sender.tag]):00", preferredStyle: UIAlertControllerStyle.alert)
+            
+            //UIAlertActionStye.destructive 지정 글꼴 색상 변경
+            let okAction = UIAlertAction(title: "예약", style: UIAlertActionStyle.destructive){ (action: UIAlertAction) in
+                let param = "stdId=201301484&roomNum=\(self.rooms[sender.tag].roomNum!)&roomTime=\(self.times[sender.tag])00&resTime=\(self.times[sender.tag]):00"
+                let cell = self.singCollectionView.cellForItem(at: [0,sender.tag]) as! SingingRoomCollectionViewCell
+                cell.roomOneButton.layer.sublayers?.removeAll()
+                cell.roomOneLabel.text = self.status[0]
+                cell.roomOneButton.isEnabled = false
+                let model = NetworkModel(self)
+                model.giveSingingRoom(param: param, tag: sender.tag)
+                self.startLoading()
+            }
+            
+            let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            alertController.addAction(okAction)
+            alertController.addAction(cancelButton)
+            self.present(alertController,animated: true,completion: nil)
+        }
+        else {
+            let alertController = UIAlertController(title: "이미 예약된 이력이 있습니다",message: "한 사람당 하나의 예약만 가능합니다.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let cancelButton = UIAlertAction(title: "확인", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            alertController.addAction(cancelButton)
+            self.present(alertController,animated: true,completion: nil)
+        }
     }
     
     @objc func roomTwoClicked(sender: UIButton) {
-        let param = "stdId=201301484&roomNum=\(rooms[sender.tag + 8].roomNum!)&roomTime=\(times[sender.tag])00&resTime=\(times[sender.tag]):00"
-        let cell = singCollectionView.cellForItem(at: [0,sender.tag]) as! SingingRoomCollectionViewCell
-        cell.roomTwoButton.layer.sublayers?.removeAll()
-        cell.roomTwoLabel.text = status[0]
-        cell.roomTwoButton.isEnabled = false
-        let model = NetworkModel(self)
-        model.giveSingingRoom(param: param)
+        if appDelegate.profileInfo?.reserved! == 0 {
+            let alertController = UIAlertController(title: "예약하시겠습니까?",message: "노래방 / 예약시간 \(self.times[sender.tag]):00", preferredStyle: UIAlertControllerStyle.alert)
+            
+            //UIAlertActionStye.destructive 지정 글꼴 색상 변경
+            let okAction = UIAlertAction(title: "예약", style: UIAlertActionStyle.destructive){ (action: UIAlertAction) in
+                let param = "stdId=201301484&roomNum=\(self.rooms[sender.tag + 8].roomNum!)&roomTime=\(self.times[sender.tag])00_2&resTime=\(self.times[sender.tag]):00"
+                let cell = self.singCollectionView.cellForItem(at: [0,sender.tag]) as! SingingRoomCollectionViewCell
+                cell.roomTwoButton.layer.sublayers?.removeAll()
+                cell.roomTwoLabel.text = self.status[0]
+                cell.roomTwoButton.isEnabled = false
+                let model = NetworkModel(self)
+                model.giveSingingRoom(param: param, tag: sender.tag)
+                self.startLoading()
+            }
+            
+            let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            alertController.addAction(okAction)
+            alertController.addAction(cancelButton)
+            self.present(alertController,animated: true,completion: nil)
+        }
+        else {
+            let alertController = UIAlertController(title: "이미 예약된 이력이 있습니다",message: "한 사람당 하나의 예약만 가능합니다.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let cancelButton = UIAlertAction(title: "확인", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            alertController.addAction(cancelButton)
+            self.present(alertController,animated: true,completion: nil)
+        }
+    }
+    
+    func startLoading() {
+        self.loadingview.isHidden = false
+        self.loadingIndicator.isHidden = false
+        self.loadingIndicator.startAnimating()
+    }
+    
+    func endLoading() {
+        self.loadingview.isHidden = true
+        self.loadingIndicator.isHidden = true
+        self.loadingIndicator.stopAnimating()
     }
 }
+

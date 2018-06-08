@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ibD-YT-g7j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ibD-YT-g7j">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,7 +44,7 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabMy" translatesAutoresizingMaskIntoConstraints="NO" id="gat-ey-wuu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="gat-ey-wuu">
                                 <rect key="frame" x="40" y="84" width="101" height="101"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="a31-kR-LQ4"/>
@@ -206,7 +206,7 @@
                         <viewLayoutGuide key="safeArea" id="hZJ-kP-HfI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabMy" id="OjO-2H-vn1">
-                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-6"/>
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -231,6 +231,7 @@
         <image name="collectionTitle" width="384" height="54"/>
         <image name="logout" width="30" height="36"/>
         <image name="mainTop" width="414" height="229"/>
-        <image name="tabMy" width="28" height="51"/>
+        <image name="profileImage" width="119" height="119"/>
+        <image name="tabMy" width="19" height="34"/>
     </resources>
 </document>

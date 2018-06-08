@@ -12,6 +12,7 @@
 		93B735A020C4CF3000C299FE /* RentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */; };
 		93B735A120C4CF3000C299FE /* RentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */; };
 		93B735A320C4D1D300C299FE /* RentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B735A220C4D1D300C299FE /* RentViewController.swift */; };
+		AFDEF2F220C9705000F463EE /* DVDRoomTypeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDEF2F120C9705000F463EE /* DVDRoomTypeInfo.swift */; };
 		C8A99ABF20C586EC00A8CBB0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A99ABE20C586EC00A8CBB0 /* Contact.swift */; };
 		C8A99AC120C5889A00A8CBB0 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A99AC020C5889A00A8CBB0 /* NetworkModel.swift */; };
 		C8A99AC320C58A7400A8CBB0 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A99AC220C58A7400A8CBB0 /* NetworkCallback.swift */; };
@@ -21,6 +22,7 @@
 		DA22906420BD483F00159593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906220BD483F00159593 /* Main.storyboard */; };
 		DA22906620BD483F00159593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA22906520BD483F00159593 /* Assets.xcassets */; };
 		DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22906720BD483F00159593 /* LaunchScreen.storyboard */; };
+		DA26AA9D20C93E9E009532D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA26AA9C20C93E9D009532D7 /* GoogleService-Info.plist */; };
 		DA58CF8E20C437A9005C9993 /* Playstation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF8D20C437A9005C9993 /* Playstation.storyboard */; };
 		DA58CF9020C437EC005C9993 /* Culture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF8F20C437EC005C9993 /* Culture.storyboard */; };
 		DA58CF9220C43814005C9993 /* Rent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA58CF9120C43814005C9993 /* Rent.storyboard */; };
@@ -28,6 +30,14 @@
 		DAF4CD2220C3DB9C00AEEB67 /* SingingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */; };
 		DAF4CD2520C3E20D00AEEB67 /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAF4CD2420C3E20C00AEEB67 /* NanumSquareOTFRegular.otf */; };
 		DAF4CD2B20C3E40F00AEEB67 /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAF4CD2A20C3E40F00AEEB67 /* NanumSquareOTFBold.otf */; };
+		DAF7457920C7B08D0081EF41 /* PlaystationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF7457720C7B08D0081EF41 /* PlaystationCollectionViewCell.swift */; };
+		DAF7457A20C7B08D0081EF41 /* PlaystationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF7457820C7B08D0081EF41 /* PlaystationCollectionViewCell.xib */; };
+		DAF7457C20C7B1180081EF41 /* PlaystationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF7457B20C7B1180081EF41 /* PlaystationViewController.swift */; };
+		DAF7457E20C7F6110081EF41 /* RentalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF7457D20C7F6110081EF41 /* RentalInfo.swift */; };
+		DAF7458320C7F7B30081EF41 /* Culture2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF7457F20C7F7B20081EF41 /* Culture2CollectionViewCell.swift */; };
+		DAF7458420C7F7B30081EF41 /* CultureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF7458020C7F7B20081EF41 /* CultureCollectionViewCell.swift */; };
+		DAF7458520C7F7B30081EF41 /* CultureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF7458120C7F7B20081EF41 /* CultureCollectionViewCell.xib */; };
+		DAF7458620C7F7B30081EF41 /* Culture2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF7458220C7F7B30081EF41 /* Culture2CollectionViewCell.xib */; };
 		DAF9023220C64B7C005DB2B9 /* SingingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF9023120C64B7C005DB2B9 /* SingingRoom.swift */; };
 		DAF9023920C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF9023720C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift */; };
 		DAF9023A20C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF9023820C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib */; };
@@ -40,6 +50,7 @@
 		93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentCollectionViewCell.swift; sourceTree = "<group>"; };
 		93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentCollectionViewCell.xib; sourceTree = "<group>"; };
 		93B735A220C4D1D300C299FE /* RentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentViewController.swift; sourceTree = "<group>"; };
+		AFDEF2F120C9705000F463EE /* DVDRoomTypeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVDRoomTypeInfo.swift; sourceTree = "<group>"; };
 		C8A99ABE20C586EC00A8CBB0 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C8A99AC020C5889A00A8CBB0 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		C8A99AC220C58A7400A8CBB0 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
@@ -51,6 +62,7 @@
 		DA22906520BD483F00159593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA22906820BD483F00159593 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA22906A20BD483F00159593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA26AA9C20C93E9D009532D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA58CF8D20C437A9005C9993 /* Playstation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Playstation.storyboard; sourceTree = "<group>"; };
 		DA58CF8F20C437EC005C9993 /* Culture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Culture.storyboard; sourceTree = "<group>"; };
 		DA58CF9120C43814005C9993 /* Rent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rent.storyboard; sourceTree = "<group>"; };
@@ -58,6 +70,14 @@
 		DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingRoomViewController.swift; sourceTree = "<group>"; };
 		DAF4CD2420C3E20C00AEEB67 /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
 		DAF4CD2A20C3E40F00AEEB67 /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		DAF7457720C7B08D0081EF41 /* PlaystationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaystationCollectionViewCell.swift; sourceTree = "<group>"; };
+		DAF7457820C7B08D0081EF41 /* PlaystationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaystationCollectionViewCell.xib; sourceTree = "<group>"; };
+		DAF7457B20C7B1180081EF41 /* PlaystationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaystationViewController.swift; sourceTree = "<group>"; };
+		DAF7457D20C7F6110081EF41 /* RentalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalInfo.swift; sourceTree = "<group>"; };
+		DAF7457F20C7F7B20081EF41 /* Culture2CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Culture2CollectionViewCell.swift; sourceTree = "<group>"; };
+		DAF7458020C7F7B20081EF41 /* CultureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CultureCollectionViewCell.swift; sourceTree = "<group>"; };
+		DAF7458120C7F7B20081EF41 /* CultureCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CultureCollectionViewCell.xib; sourceTree = "<group>"; };
+		DAF7458220C7F7B30081EF41 /* Culture2CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Culture2CollectionViewCell.xib; sourceTree = "<group>"; };
 		DAF9023120C64B7C005DB2B9 /* SingingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingRoom.swift; sourceTree = "<group>"; };
 		DAF9023720C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingRoomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAF9023820C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingingRoomCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -100,6 +120,8 @@
 				C8A99AC020C5889A00A8CBB0 /* NetworkModel.swift */,
 				C8A99AC220C58A7400A8CBB0 /* NetworkCallback.swift */,
 				DAF9023120C64B7C005DB2B9 /* SingingRoom.swift */,
+				DAF7457D20C7F6110081EF41 /* RentalInfo.swift */,
+				AFDEF2F120C9705000F463EE /* DVDRoomTypeInfo.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -130,6 +152,7 @@
 				DAF4CD2320C3E16D00AEEB67 /* Font */,
 				DA22905E20BD483F00159593 /* AppDelegate.swift */,
 				DAF4CD2120C3DB9C00AEEB67 /* SingingRoomViewController.swift */,
+				DAF7457B20C7B1180081EF41 /* PlaystationViewController.swift */,
 				DA22906220BD483F00159593 /* Main.storyboard */,
 				DA22906520BD483F00159593 /* Assets.xcassets */,
 				DA22906720BD483F00159593 /* LaunchScreen.storyboard */,
@@ -142,6 +165,7 @@
 				93B735A220C4D1D300C299FE /* RentViewController.swift */,
 				C8F183B420C458C500ED8321 /* ProfileViewController.swift */,
 				DA58CF9520C43838005C9993 /* Profile.storyboard */,
+				DA26AA9C20C93E9D009532D7 /* GoogleService-Info.plist */,
 			);
 			path = INULand;
 			sourceTree = "<group>";
@@ -149,10 +173,16 @@
 		DA58CF8C20C43225005C9993 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DAF7457F20C7F7B20081EF41 /* Culture2CollectionViewCell.swift */,
+				DAF7458220C7F7B30081EF41 /* Culture2CollectionViewCell.xib */,
+				DAF7458020C7F7B20081EF41 /* CultureCollectionViewCell.swift */,
+				DAF7458120C7F7B20081EF41 /* CultureCollectionViewCell.xib */,
 				93B7359E20C4CF3000C299FE /* RentCollectionViewCell.swift */,
 				93B7359F20C4CF3000C299FE /* RentCollectionViewCell.xib */,
 				DAF9023720C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift */,
 				DAF9023820C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib */,
+				DAF7457720C7B08D0081EF41 /* PlaystationCollectionViewCell.swift */,
+				DAF7457820C7B08D0081EF41 /* PlaystationCollectionViewCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,14 +259,18 @@
 			files = (
 				DA58CF8E20C437A9005C9993 /* Playstation.storyboard in Resources */,
 				DA58CF9620C43838005C9993 /* Profile.storyboard in Resources */,
+				DA26AA9D20C93E9E009532D7 /* GoogleService-Info.plist in Resources */,
 				DAF9023A20C653C8005DB2B9 /* SingingRoomCollectionViewCell.xib in Resources */,
+				DAF7457A20C7B08D0081EF41 /* PlaystationCollectionViewCell.xib in Resources */,
 				DA22906920BD483F00159593 /* LaunchScreen.storyboard in Resources */,
 				DA22906620BD483F00159593 /* Assets.xcassets in Resources */,
 				DA22906420BD483F00159593 /* Main.storyboard in Resources */,
 				DAF4CD2B20C3E40F00AEEB67 /* NanumSquareOTFBold.otf in Resources */,
 				DA58CF9020C437EC005C9993 /* Culture.storyboard in Resources */,
 				93B735A120C4CF3000C299FE /* RentCollectionViewCell.xib in Resources */,
+				DAF7458520C7F7B30081EF41 /* CultureCollectionViewCell.xib in Resources */,
 				DA58CF9220C43814005C9993 /* Rent.storyboard in Resources */,
+				DAF7458620C7F7B30081EF41 /* Culture2CollectionViewCell.xib in Resources */,
 				DAF4CD2520C3E20D00AEEB67 /* NanumSquareOTFRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,19 +305,27 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-INULand/Pods-INULand-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -297,16 +339,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF7458320C7F7B30081EF41 /* Culture2CollectionViewCell.swift in Sources */,
 				93B735A020C4CF3000C299FE /* RentCollectionViewCell.swift in Sources */,
+				DAF7457C20C7B1180081EF41 /* PlaystationViewController.swift in Sources */,
 				C8F183B520C458C500ED8321 /* ProfileViewController.swift in Sources */,
 				DAF4CD2220C3DB9C00AEEB67 /* SingingRoomViewController.swift in Sources */,
 				C8A99AC120C5889A00A8CBB0 /* NetworkModel.swift in Sources */,
 				93B735A320C4D1D300C299FE /* RentViewController.swift in Sources */,
+				DAF7457E20C7F6110081EF41 /* RentalInfo.swift in Sources */,
+				DAF7457920C7B08D0081EF41 /* PlaystationCollectionViewCell.swift in Sources */,
+				DAF7458420C7F7B30081EF41 /* CultureCollectionViewCell.swift in Sources */,
 				DAF9023920C653C8005DB2B9 /* SingingRoomCollectionViewCell.swift in Sources */,
 				C8A99AC320C58A7400A8CBB0 /* NetworkCallback.swift in Sources */,
 				C8A99ABF20C586EC00A8CBB0 /* Contact.swift in Sources */,
 				DAF9023220C64B7C005DB2B9 /* SingingRoom.swift in Sources */,
 				DA22906120BD483F00159593 /* LoginViewController.swift in Sources */,
+				AFDEF2F220C9705000F463EE /* DVDRoomTypeInfo.swift in Sources */,
 				938DF2FC20C5719D006ACEA9 /* CultureViewController.swift in Sources */,
 				DA22905F20BD483F00159593 /* AppDelegate.swift in Sources */,
 			);

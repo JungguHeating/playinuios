@@ -32,9 +32,11 @@ class ProfileViewController: UIViewController {
     var noshowToInt : Int?
     var userIdToString: String?
     var roomTimeToString: String?
-    
+    var reservedToInt: Int?
     
     override func viewDidLoad() {
+        
+        
         profileInfo = self.appDelegate.profileInfo
         super.viewDidLoad()
         profileName.text = self.appDelegate.profileInfo?.userName
@@ -48,7 +50,8 @@ class ProfileViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        profileInfo = self.appDelegate.profileInfo
+        isReservedCheck()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,25 +60,43 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logOutButtonClicked(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        let alertController = UIAlertController(title: "로그아웃 하시겠습니까?",message: " ", preferredStyle: UIAlertControllerStyle.alert)
+        
+        //UIAlertActionStye.destructive 지정 글꼴 색상 변경
+        let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive){ (action: UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelButton)
+        self.present(alertController,animated: true,completion: nil)
+        
     }
     
     @IBAction func reservationCancleClicked(_ sender: Any) {
         //
         userIdToString = profileInfo?.userId
         roomTimeToString = profileInfo?.roomTime
+        reservedToInt = profileInfo?.reserved
         let alertController = UIAlertController(title: "해당 내용을 삭제할까요？",message: "삭제하게 되면 복구가 불가능합니다.", preferredStyle: UIAlertControllerStyle.alert)
         
         //UIAlertActionStye.destructive 지정 글꼴 색상 변경
         let okAction = UIAlertAction(title: "삭제", style: UIAlertActionStyle.destructive){ (action: UIAlertAction) in
-            let param = "stdId=\(self.userIdToString!)&roomTime=\(self.roomTimeToString!)"
+            let param = "stdId=\(self.userIdToString!)&roomTime=\(self.roomTimeToString!)&kindNum=\(self.reservedToInt!)"
             print(param)
             let model = NetworkModel(self)
             model.calcleReservation(param: param)
             
-            self.view.setNeedsLayout()
-            
-            
+            self.reservationLocationLabel.text = nil
+            self.reservationTimeLabel.text = nil
+            self.reservationCancelButton.isHidden = true
+            self.divisionLine.isHidden = true
+            self.reservationCancelButton.isEnabled = false
+            self.noReservationLabel.text = "예약된 내용이 없습니다"
+            self.appDelegate.profileInfo?.reserved = 0
+            self.view.makeToast("예약이 취소되었습니다")
         }
         
         let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
@@ -93,25 +114,28 @@ class ProfileViewController: UIViewController {
     func isReservedCheck() {
         
         switch self.appDelegate.profileInfo?.reserved {
-        case 0:  // 예약 없음
+        case 0?:  // 예약 없음
             reservationLocationLabel.text = nil
             reservationTimeLabel.text = nil
             reservationCancelButton.isHidden = true
             divisionLine.isHidden = true
+            reservationCancelButton.isEnabled = false
             break
-        case 1: // 노래방 예약
+        case 1?: // 노래방 예약
             reservationLocationLabel.text = "노래방"
             reservationTimeLabel.text = self.appDelegate.profileInfo?.resTime
             reservationCancelButton.isHidden = false
             divisionLine.isHidden = false
             noReservationLabel.text = nil
+            reservationCancelButton.isEnabled = true
             break
-        case 2: // 플스방 예약
+        case 2?: // 플스방 예약
             reservationLocationLabel.text = "플스방"
             reservationTimeLabel.text = self.appDelegate.profileInfo?.resTime
             reservationCancelButton.isHidden = false
             divisionLine.isHidden = false
             noReservationLabel.text = nil
+            reservationCancelButton.isEnabled = true
             break
         default:
             break
@@ -143,14 +167,14 @@ class ProfileViewController: UIViewController {
         noShowCellView.layer.shadowOffset = CGSize(width: 0, height: 3.0)
         noShowCellView.layer.shadowOpacity = 0.4
         noShowCellView.layer.masksToBounds = false
-        noShowCellView.layer.shadowPath = UIBezierPath(roundedRect: noShowCellView.bounds, cornerRadius: 5).cgPath
+        noShowCellView.layer.shadowPath = UIBezierPath(roundedRect:noShowCellView.bounds, cornerRadius: 5).cgPath
     }
 }
 
 
 extension ProfileViewController : NetworkCallback {
     
-    func networkSuc(resultdata: Any, code: String) {
+    func networkSuc(resultdata: Any, code: String, tag: Int) {
         if code == "Profile" {
             print(resultdata)
             var temp : [userinfo] = []
@@ -171,16 +195,23 @@ extension ProfileViewController : NetworkCallback {
                 self.appDelegate.profileInfo = obj
             }
         }
-        else if code == "cancales"{
+        else if code == "cancels"{
             print("12345566")
             let model = NetworkModel(self)
             model.getProfile()
+            self.view.makeToast("예약이 취소되었습니다")
         }
     }
     func networkFail(code: String) {
         if(code == "error") {
             print("실패하였습니다.")
-            
+            let model = NetworkModel(self)
+            model.getProfile()
+        }
+        if(code == "cancel Error)") {
+            let param = "stdId=\(self.userIdToString!)&kindNum=\(self.reservedToInt!)"
+            let model = NetworkModel(self)
+            model.calcleReservation(param: param)
         }
     }
     

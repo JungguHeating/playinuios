@@ -43,13 +43,15 @@ class LoginViewController: UIViewController {
     @IBAction func signInButtonClicked(_ sender: Any) {
         if idTextField.text == adminID && passTextField.text == adminPass {
 
-            self.view.makeToast("로그인 중...", duration: 3, position: .bottom)
+            let point = CGPoint.init(x: (self.view.frame.width / 2) - 5, y: self.view.frame.height - 100)
+//            self.view.makeToast("로그인 중...", duration: 2, position: .bottom)
+            self.view.makeToast("로그인 중...", point: point, title: nil, image: nil, completion: nil)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBar")
 
             let model = NetworkModel(self)
             model.getProfile()
 
-            let time = DispatchTime.now() + .seconds(3)
+            let time = DispatchTime.now() + .seconds(2)
             DispatchQueue.main.asyncAfter(deadline: time) {
                 self.present(vc!, animated: true, completion: nil)
             }
@@ -58,7 +60,7 @@ class LoginViewController: UIViewController {
         }else {
             idTextField.text = ""
             passTextField.text = ""
-            self.view.makeToast("로그인 실패!", duration: 3, position: .bottom)
+            self.view.makeToast("로그인 실패!", duration: 2, position: .bottom)
         }
     }
     
@@ -83,7 +85,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController : NetworkCallback {
     
-    func networkSuc(resultdata: Any, code: String) {
+    func networkSuc(resultdata: Any, code: String, tag: Int) {
         if code == "Profile" {
             print(resultdata)
             var temp : [userinfo] = []

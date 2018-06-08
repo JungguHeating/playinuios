@@ -190,14 +190,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lP1-Xq-YtM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6lA-OP-u5X">
+                                        <rect key="frame" x="189" y="325" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" red="0.32549019610000002" green="0.48627450979999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="nZE-5W-oKv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="tabMic" id="uz6-bh-jVB">
-                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-6"/>
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="loadingIndicator" destination="6lA-OP-u5X" id="bvt-XK-acl"/>
+                        <outlet property="loadingview" destination="lP1-Xq-YtM" id="VDy-pu-NP3"/>
                         <outlet property="singCollectionView" destination="cP8-hE-07C" id="98d-YB-t6s"/>
                         <outlet property="topImage" destination="5NL-xR-iLT" id="42U-l7-gUh"/>
                     </connections>
@@ -262,7 +276,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8ci-47-ezs">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.48627450979999998" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
@@ -280,10 +294,10 @@
     </scenes>
     <resources>
         <image name="loginBubble" width="280" height="137"/>
-        <image name="tabCulture" width="51" height="49"/>
-        <image name="tabMic" width="39" height="55"/>
-        <image name="tabMy" width="28" height="51"/>
-        <image name="tabPS" width="46" height="49"/>
-        <image name="tabRent" width="54" height="54"/>
+        <image name="tabCulture" width="34" height="33"/>
+        <image name="tabMic" width="26" height="37"/>
+        <image name="tabMy" width="19" height="34"/>
+        <image name="tabPS" width="31" height="33"/>
+        <image name="tabRent" width="36" height="36"/>
     </resources>
 </document>
